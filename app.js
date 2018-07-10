@@ -7,6 +7,11 @@ new Vue({
 
     },
     methods: {
+        startGame: function(){
+            this.gameIsRunning = true;
+            this.myHealth = 100;
+            this.monsterHealth = 100;
+        }
 
 
     },
