@@ -33,6 +33,19 @@ new Vue({
             }
             else
                 this.monsterHealth -= monsterValue;
+        },
+        heal: function(){
+            var myValue = Math.floor(Math.random() * 10 + 1);
+            var monsterValue = Math.floor(Math.random() * 5 + 1)
+            if ((myValue + this.myHealth) <= 100){
+                this.myHealth += myValue;
+            }
+            if ((monsterValue + this.monsterHealth) <= 100){
+                this.monsterHealth += monsterValue;
+            }
+        },
+        giveUp: function(){
+            this.startGame();
         }
     }
 });
