@@ -48,7 +48,9 @@
     <section class="row log" v-if="logDatas.length > 0">
         <div class="small-12 columns">
             <ul>
-                <li v-for="log in logDatas">
+                <li 
+                    v-for="log in logDatas"
+                    :class="{'player-turn': log.isPlayer, 'monster-turn': !log.isPlayer }">
                     {{log.text}}
                 </li>
             </ul>
