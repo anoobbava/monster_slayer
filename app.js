@@ -3,7 +3,8 @@ new Vue({
     data: {
         myHealth: 100,
         monsterHealth: 100,
-        gameIsRunning: false
+        gameIsRunning: false,
+        logDatas: []
 
     },
     methods: {
@@ -25,14 +26,22 @@ new Vue({
                 alert('monster Won');
                 this.startGame();
             }
-            else 
+            else{
                 this.myHealth -= myValue;
+                this.logDatas.unshift({ 
+                    text: 'Player hits monster for' + myValue + 'points'
+                });
+            }
             if ((this.monsterHealth - monsterValue) <= 0){
                 alert('You Won');
                 this.startGame();
             }
-            else
+            else{
                 this.monsterHealth -= monsterValue;
+                this.logDatas.unshift({
+                    text: 'Monster hits Player for' + monsterValue + 'points'
+                });
+            }
         },
         heal: function(){
             var myValue = Math.floor(Math.random() * 10 + 1);
